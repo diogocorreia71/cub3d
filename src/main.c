@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/18 13:47:15 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:08:41 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int	main(int argc, char *argv[])
 {
 	t_game	cub3d;
 
+	ft_check_b4_init(argc, argv, &cub3d);
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
-	ft_check_b4_init(argc, argv, &cub3d);
-	//printf("END PARSER\n");
-	//exit(0); //remove
+	/* printf("END PARSER\n");
+	exit(0); //remove */
 	#//TODO map6.cub and map8.cub check for leaks (sp	rites error induced)
 	
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);

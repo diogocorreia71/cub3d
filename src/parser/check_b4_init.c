@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/17 14:47:43 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:08:10 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_check_filename(t_game *cub3d)
 void	ft_check_b4_init(int ac, char **av, t_game *cub3d)
 {
 	if (ac != 2)
-		ft_perror("Error\nNumber of args are invalid!\n", cub3d);
+		ft_perror("Error\nNumber of args are invalid!\n", NULL);
 	cub3d->file = av[1];
 	ft_memset(&cub3d->map, 0, sizeof(t_map));
 	ft_count_map_lines(cub3d);
@@ -60,6 +60,8 @@ void	ft_check_b4_init(int ac, char **av, t_game *cub3d)
 void	ft_perror(char *msg, t_game *cub3d)
 {
 	printf("%s", msg);
+	if (!cub3d)
+		exit (EXIT_FAILURE);
 	if (cub3d->lib)
 	{
 		mlx_destroy_display(cub3d->lib);

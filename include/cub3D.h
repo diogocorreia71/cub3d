@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/18 13:39:33 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:59:54 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@
 # define HEIGHT 600
 # define WIDTH 600
 
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define LEFT 65361
-# define RIGHT 65363
+
 
 typedef struct x_pos
 {
@@ -115,7 +109,7 @@ t_sprite    ft_get_sprite_info(t_game *cub3d, char *texture);
 //Hooks
 int	ft_end_game(t_game *cub3d);
 int	ft_keypress(int keycode, t_game *cub3d);
-int	ft_keyrelease(int keycode, t_player *player);
+//int	ft_keyrelease(int keycode, t_player *player);
 
 //Events
 void    ft_make_game(t_game *cub3d);
