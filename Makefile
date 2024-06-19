@@ -6,7 +6,7 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 14:34:42 by jmarinho          #+#    #+#              #
-#    Updated: 2024/06/18 14:01:57 by jmarinho         ###   ########.fr        #
+#    Updated: 2024/06/19 10:36:03 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,8 @@ NAME = cub3D
 
 SRC_PATH = src/
 VPATH = $(SRC_PATH) $(SRC_PATH)parser $(SRC_PATH)events $(SRC_PATH)sprites
-SRC = main.c \
-	parser_utils.c \
-	check_b4_init.c \
-	copy_config_map.c \
-	copy_game_map.c \
-	check_game_map.c \
+SRC = main.c parser_utils.c check_b4_init.c copy_config_map.c copy_game_map.c \
+	check_game_map.c make_game.c \
 
 OBJ_PATH = obj/
 OBJFILES = $(SRC:.c=.o)

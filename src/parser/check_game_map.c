@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/17 14:37:16 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:15:11 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ void	ft_check_invalid_chars(t_game *cub3d)
 					ft_perror("ERROR\nMore than one player on game map\n", cub3d);
 				else
 				{
-					cub3d->map.player_pos.x = i;
-					cub3d->map.player_pos.y = k;
+					cub3d->player.tile  = cub3d->map.game_map[i][k];
+					cub3d->player.pos.x = i;
+					cub3d->player.pos.y = k;
 				}
 			}
 		}
@@ -111,6 +112,6 @@ void	ft_check_game_map(t_game *cub3d)
 	ft_get_rows(cub3d);
 	ft_get_cols(cub3d);
 	ft_create_flood_map(cub3d);
-	ft_flood_fill(cub3d->map.player_pos.x, cub3d->map.player_pos.y, cub3d);
+	ft_flood_fill(cub3d->player.pos.x, cub3d->player.pos.y, cub3d);
 	ft_free_dp((void **)cub3d->map.flood_map);
 }
