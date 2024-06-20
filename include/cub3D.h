@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/19 10:36:47 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:31:27 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 //# include "vector2D.h"
 # include <assert.h>
 # include <stdbool.h>
+# include <math.h>
 
 # define NO 0
 # define SO 1
@@ -32,10 +33,18 @@
 # define WIDTH 600
 # define FOV 90
 
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define LEFT 65361
+# define RIGHT 65363
+
 typedef struct s_pos
 {
-	int		x;
-	int		y;
+	double	x;
+	double	y;
 }	t_pos;
 
 typedef struct s_player
@@ -84,6 +93,14 @@ typedef struct s_sprite
 	int		width;
 }	t_sprite;
 
+typedef struct s_ray
+{
+	t_pos	dir;
+	t_pos	delta;
+	t_pos	side_d;
+	t_pos	step;
+}	t_ray;
+
 typedef struct s_game
 {
 	t_map		map;
@@ -92,9 +109,9 @@ typedef struct s_game
 	void		*window;
 	t_sprite	sprite[6];
 	t_player	player;
+	t_image		buffer;
 	int			c_color;
 	int			f_color;
-	
 }	t_game;
 
 // Map
@@ -117,15 +134,18 @@ void		ft_perror(char *msg, t_game *cub3d);
 t_sprite    ft_get_sprite_info(t_game *cub3d, char *texture);
 
 //Hooks
-int	ft_end_game(t_game *cub3d);
-int	ft_keypress(int keycode, t_game *cub3d);
-int	ft_keyrelease(int keycode, t_player *player);
+int			ft_end_game(t_game *cub3d);
+int			ft_keypress(int keycode, t_game *cub3d);
+int			ft_keyrelease(int keycode, t_player *player);
 
 //Make_game
-void    ft_make_game(t_game *cub3d);
-void    ft_begin(t_game *cub3d);
+void		ft_init_player_pos(t_game *cub3d);
+int			ft_make_game(t_game *cub3d);
 
-//Vectors
-void    ft_calc_prep_vector(t_game *cub3d);
+//Img_buffer
+void		start_image_buffer(t_game *cub3d);
+
+//Img
+void	pixel_put(t_image *img, int pixelX, int pixelY, int color);
 
 #endif

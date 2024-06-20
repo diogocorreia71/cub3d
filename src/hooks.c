@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:00:08 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/18 13:27:27 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:22:55 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_keypress(int keycode, t_game *cub3d)
 
 	player = &cub3d->player;
 	if (keycode == ESC)
-		close_game(cub3d);
+		ft_end_game(cub3d);
 	else if (keycode == W)
 		player->movement.y = 1;
 	else if (keycode == S)
