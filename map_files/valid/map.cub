@@ -1,25 +1,14 @@
-NO./sprites/north_wall.xpm
-
-
-
-SO      ./sprites/south_wall.xpm
-WE                      ./sprites/west_wall.xpm
-
-
+NO ./sprites/north_wall.xpm
+SO ./sprites/south_wall.xpm
+WE ./sprites/west_wall.xpm
 EA ./sprites/east_wall.xpm
+C 135,206,235
 F 125,200,10
-
-C    140,125,10
-
-
-
-      
 
 11111111
 10000001
-10010001
-10010101
-101 0001
+10000001
+100N0001
+10000001
+10000001
 11111111
-1000N01
-1111111

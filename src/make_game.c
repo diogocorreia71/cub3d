@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:33:43 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/20 15:39:08 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:23:51 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,12 @@ void    ft_init_player_pos(t_game *cub3d)
 	else if (cub3d->player.tile == 'E')
 		cub3d->player.direction = (t_pos){dir, 0};
 	cub3d->player.movement = (t_pos){0, 0};
-	cub3d->player.plane.x = 0;
-    cub3d->player.plane.y = 0.66;
+	cub3d->player.plane.angle = FOV / 90;
 }
 
 int	ft_make_game(t_game *cub3d)
 {
-	int pixelX;
-	int	pixelY;
-
-	pixelX = 0;
 	start_image_buffer(cub3d);
-	while(pixelX++ < WIDTH)
-	{
-		pixelY = 300;
-		while (pixelY++ < HEIGHT)
-		{
-			pixel_put(&cub3d->buffer, pixelX, pixelY, 0xFF0000);
-		}
-	}
-	mlx_put_image_to_window(cub3d->lib, cub3d->window, cub3d->buffer.img_ptr, 0, 0);
+	ft_raycast_by_lodev(cub3d);
 	return (EXIT_SUCCESS);
 }
