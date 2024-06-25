@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:54:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 15:35:47 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:58:44 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ void	ft_player_movements(t_game *cub3d)
 	t_player	*player;
 	t_pos		new_pos;
 
+	/* printf("dir.x %f\n", cub3d->player.direction.x);
+	printf("dir.y %f\n", cub3d->player.direction.y);
+	printf("plane.x %f\n", cub3d->player.plane.pos.x);
+	printf("plane.y %f\n", cub3d->player.plane.pos.y); */
 	player = &cub3d->player;
+	new_pos.x = 0;
+	new_pos.y = 0;
 	if (cub3d->key == W || cub3d->key == S)
 	{	
 		new_pos.x = player->pos.x + player->direction.x * SPEED * player->movement.y;

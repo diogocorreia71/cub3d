@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/17 14:35:44 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:45:47 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void	ft_free_dp(void **arg)
 	int	i;
 
 	i = 0;
+	if (!arg)
+		return ;
 	while (arg[i] != NULL && arg[i] != 0)
 	{
-		free(arg[i]);
+		if (arg[i])
+			free(arg[i]);
 		i++;
 	}
 	free(arg);

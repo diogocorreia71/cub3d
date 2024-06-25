@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 12:26:36 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 14:41:51 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:22:20 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,5 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 		ft_color(cub3d, i, 'f');
 	}
 	mlx_put_image_to_window(cub3d->lib, cub3d->window, cub3d->image.img_ptr, 0, 0);
+	mlx_destroy_image(cub3d->lib, cub3d->image.img_ptr);
 }

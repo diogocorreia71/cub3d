@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:35:11 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/17 14:36:59 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:42:05 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_copy_game_map(t_game *cub3d)
 
 	cub3d->map.game_map = ft_calloc(sizeof(char *), cub3d->map.total_lines);
 	if (!cub3d->map.game_map)
-		ft_perror ("ERROR\nMalloc for cub3d->map.game_map failed\n", cub3d);
+		ft_perror ("ERROR\nCalloc for cub3d->map.game_map failed\n", cub3d);
 	fd = open(cub3d->file, O_RDONLY);
 	if (fd < 0)
 		ft_perror("ERROR\nCouldn't open requested file\n", cub3d);

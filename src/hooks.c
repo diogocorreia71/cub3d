@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:00:08 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 14:22:30 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:54:46 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 int	ft_end_game(t_game *cub3d)
 {
 	int	i;
+	int	j;
 
 	i = -1;
-	while (++i < 5)
+	j = -1;
+	while (++i < 6)
+		free(cub3d->map.config_map[i]);
+	while (i++ < cub3d->map.total_lines)
+		free(cub3d->map.game_map[++j]);
+	free (cub3d->map.game_map);
+	i = -1;
+	while (++i < 4)
 		mlx_destroy_image(cub3d->lib, cub3d->sprite[i].image.img_ptr);
 	mlx_clear_window(cub3d->lib, cub3d->window);
 	mlx_destroy_window(cub3d->lib, cub3d->window);
