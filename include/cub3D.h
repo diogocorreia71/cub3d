@@ -6,10 +6,9 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 15:45:25 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:52:09 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -62,7 +61,6 @@ typedef struct s_rays
 	double		perp_wall_dist;
 }	t_rays;
 
-
 typedef struct s_plane
 {
 	t_pos		pos;
@@ -98,6 +96,7 @@ typedef struct s_map
 	bool		we_flag;
 	bool		f_flag;
 	bool		c_flag;
+	char		*clean_line;
 }	t_map;
 
 typedef struct s_image
@@ -110,7 +109,7 @@ typedef struct s_image
 }	t_image;
 
 typedef struct s_img_info
-{	
+{
 	double		line_height;
 	int			draw_start;
 	int			draw_end;
@@ -153,6 +152,15 @@ int			ft_check_all_config_flags(t_game *cub3d);
 void		ft_count_map_lines(t_game *cub3d);
 int			ft_check_if_line_is_blank(char *line);
 
+//Copy_config_map_aux
+int			ft_check_for_configs(t_game *cub3d, char *line);
+
+//Flood_fill_and_counters
+void		ft_create_flood_map(t_game *cub3d);
+void		ft_flood_fill(int x, int y, t_game *cub3d);
+void		ft_get_rows(t_game *cub3d);
+void		ft_get_cols(t_game *cub3d);
+
 //Parser_utils
 void		ft_print_map(char **map);
 void		ft_free_stack_array(void **arg);
@@ -161,8 +169,8 @@ void		ft_free_dp(void **arg);
 void		ft_perror(char *msg, t_game *cub3d);
 
 //Sprite_utils
-t_sprite    ft_get_sprite_info(t_game *cub3d, char *texture);
-void    	ft_texture_calculus(t_game *cub3d);
+t_sprite	ft_get_sprite_info(t_game *cub3d, char *texture);
+void		ft_texture_calculus(t_game *cub3d);
 
 //Hooks
 int			ft_end_game(t_game *cub3d);

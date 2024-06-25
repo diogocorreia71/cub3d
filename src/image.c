@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 15:12:41 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 16:20:17 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:04:40 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	pixel_get(t_image *img, int pixel_x, int pixel_y)
 	int	color;
 
 	color = *(unsigned int *)(img->address + (pixel_y * img->line_length
-		+ pixel_x * (img->bits_per_pixel / 8)));
+				+ pixel_x * (img->bits_per_pixel / 8)));
 	return (color);
 }
 
@@ -41,7 +41,7 @@ void	ft_sprites(t_game *cub3d, int i)
 		cub3d->img_info.pos_texture += cub3d->img_info.scale;
 		texture = pixel_get(&cub3d->sprite[cub3d->texture.index].image,
 				cub3d->img_info.tex_x, tex_y);
-		pixel_put(&cub3d->image, i, cub3d->img_info.draw_start++, texture);//0xFF0000 para as paredes em vermelho para teste
+		pixel_put(&cub3d->image, i, cub3d->img_info.draw_start++, texture);
 	}
 }
 
@@ -58,7 +58,8 @@ void	ft_color(t_game *cub3d, int i, char flag)
 	else if (flag == 'f')
 	{
 		while (cub3d->img_info.draw_end < (int)HEIGHT)
-			pixel_put(&cub3d->image, i, cub3d->img_info.draw_end++, cub3d->f_color);
+			pixel_put(&cub3d->image, i,
+				cub3d->img_info.draw_end++, cub3d->f_color);
 	}
 }
 
@@ -67,7 +68,8 @@ void	ft_image_buffer(t_game *cub3d)
 	cub3d->image.img_ptr = mlx_new_image(cub3d->lib, WIDTH, HEIGHT);
 	if (!cub3d->image.img_ptr)
 		ft_perror("ERROR\nmlx_new_image error\n", cub3d);
-	cub3d->image.address = mlx_get_data_addr(cub3d->image.img_ptr, &cub3d->image.bits_per_pixel,
+	cub3d->image.address = mlx_get_data_addr(cub3d->image.img_ptr,
+			&cub3d->image.bits_per_pixel,
 			&cub3d->image.line_length, &cub3d->image.endian);
 	if (!cub3d->image.address)
 		ft_perror("ERROR\nmlx_get_data_addr\n", cub3d);

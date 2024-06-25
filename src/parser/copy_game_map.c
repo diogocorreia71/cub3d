@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:35:11 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 16:42:05 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 19:06:45 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,48 @@ int	ft_check_if_line_is_blank(char *line)
 		i++;
 	}
 	return (EXIT_FAILURE);
+}
+
+char	*ft_copy_game_map_checker(t_game *cub3d, char *line, int fd)
+{
+	if (!ft_check_if_line_is_blank(line))
+	{
+		while (line)
+		{
+			free (line);
+			line = get_next_line(fd);
+		}
+		close(fd);
+		ft_perror("ERROR\nInvalid Map\n", cub3d);
+	}
+	return (line);
+}
+
+void	ft_copy_game_map_aux(t_game *cub3d, char *line, int fd)
+{
+	int		i;
+
+	i = -1;
+	while (line)
+	{
+		if (ft_check_if_line_is_blank(line))
+		{
+			free (line);
+			break ;
+		}
+		cub3d->map.game_map[++i] = ft_strdup(line);
+		free (line);
+		line = get_next_line(fd);
+	}
+	line = get_next_line(fd);
+	while (line)
+	{
+		line = ft_copy_game_map_checker(cub3d, line, fd);
+		free (line);
+		line = get_next_line(fd);
+	}
+	cub3d->map.game_map[i + 1] = NULL;
+	close(fd);
 }
 
 void	ft_copy_game_map(t_game *cub3d)
@@ -45,34 +87,5 @@ void	ft_copy_game_map(t_game *cub3d)
 		free (line);
 		line = get_next_line(fd);
 	}
-	i = -1;
-	while (line)
-	{
-		if (ft_check_if_line_is_blank(line))
-		{
-			free (line);
-			break ;
-		}
-		cub3d->map.game_map[++i] = ft_strdup(line);
-		free (line);
-		line = get_next_line(fd);
-	}
-	line = get_next_line(fd);
-	while (line)
-	{
-		if (!ft_check_if_line_is_blank(line))
-		{
-			while (line)
-			{
-				free (line);
-				line = get_next_line(fd);
-			}
-			close(fd);
-			ft_perror("ERROR\nInvalid Map\n", cub3d);
-		}
-		free (line);
-		line = get_next_line(fd);
-	}
-	cub3d->map.game_map[i + 1] = NULL;
-	close(fd);
+	ft_copy_game_map_aux(cub3d, line, fd);
 }

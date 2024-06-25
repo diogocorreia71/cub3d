@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 16:45:47 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:46:56 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_print_map(char **map)
 
 	i = 0;
 	while (map[i])
-		printf("%s", map[i++]);	
+		printf("%s", map[i++]);
 }
 
 void	ft_free_stack_array(void **arg)
@@ -46,7 +46,8 @@ void	ft_check_rgb(t_game *cub3d)
 		{
 			if (cub3d->map.config_map[i][j] == ',')
 				continue ;
-			else if (!ft_isdigit(cub3d->map.config_map[i][j]) && ft_atoi(&cub3d->map.config_map[i][j]) <= 255
+			else if (!ft_isdigit(cub3d->map.config_map[i][j])
+				&& ft_atoi(&cub3d->map.config_map[i][j]) <= 255
 				&& ft_atoi(&cub3d->map.config_map[i][j]) >= 0)
 				ft_perror("ERROR\nRGB values must be 3 and integers\n", cub3d);
 		}
