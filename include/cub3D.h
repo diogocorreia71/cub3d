@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 15:05:02 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:42:48 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,12 +187,5 @@ void		ft_color(t_game *cub3d, int i, char flag);
 //Movements
 void		ft_player_movements(t_game *cub3d);
 void		ft_rotate(t_game *cub3d);
-
-//Vectors
-t_pos		add_vector(t_pos v1, t_pos v2);
-t_pos		minus_vector(t_pos v1, t_pos v2);
-t_pos		multiply_vector(t_pos v1, double scalar);
-t_pos		divide_vector(t_pos v1, double scalar);
-double		length_vector(t_pos v1);
 
 #endif
