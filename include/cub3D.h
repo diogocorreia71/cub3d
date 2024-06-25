@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/24 15:49:43 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:05:02 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@
 # define WIDTH 768
 # define FOV 60
 # define SPRITE_SIZE 64
+# define SPEED 0.1
+# define ROTATION_SPEED 1.5
+
+# define COS 0.99995000041
+# define SIN 0.00999983333
 
 # define ESC 65307
 # define W 119
@@ -53,7 +58,7 @@ typedef struct s_rays
 	t_pos		delta;
 	t_pos		intersection;
 	t_pos		map_mov;
-	bool		hit_horizontal;
+	bool		hit_vertical;
 	double		perp_wall_dist;
 }	t_rays;
 
@@ -136,6 +141,7 @@ typedef struct s_game
 	int			c_color;
 	int			f_color;
 	t_rays		ray;
+	int			key;
 }	t_game;
 
 // Map
@@ -168,7 +174,7 @@ void		ft_init_player_pos(t_game *cub3d);
 int			ft_make_game(t_game *cub3d);
 
 //Img_buffer
-void		start_image_buffer(t_game *cub3d);
+void		ft_image_buffer(t_game *cub3d);
 
 //Img
 void		pixel_put(t_image *img, int pixelX, int pixelY, int color);
@@ -177,5 +183,16 @@ void		pixel_put(t_image *img, int pixelX, int pixelY, int color);
 void		ft_raycast_by_lodev(t_game *cub3d);
 void		ft_sprites(t_game *cub3d, int i);
 void		ft_color(t_game *cub3d, int i, char flag);
+
+//Movements
+void		ft_player_movements(t_game *cub3d);
+void		ft_rotate(t_game *cub3d);
+
+//Vectors
+t_pos		add_vector(t_pos v1, t_pos v2);
+t_pos		minus_vector(t_pos v1, t_pos v2);
+t_pos		multiply_vector(t_pos v1, double scalar);
+t_pos		divide_vector(t_pos v1, double scalar);
+double		length_vector(t_pos v1);
 
 #endif

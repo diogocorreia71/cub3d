@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/24 15:45:36 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:43:44 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,28 @@ void	ft_texture_calculus(t_game *cub3d)
 	cub3d->texture.index = NO;
 	wall_x = 0;
 	cub3d->img_info.tex_x = 0;
-	if (cub3d->ray.hit_horizontal == false)
+	if (cub3d->ray.hit_vertical == true)
 		wall_x = cub3d->player.pos.y + cub3d->ray.perp_wall_dist * cub3d->ray.direction.y;
 	else
 		wall_x = cub3d->player.pos.x + cub3d->ray.perp_wall_dist * cub3d->ray.direction.x;
-	
 	wall_x -= floor(wall_x);
 	cub3d->img_info.tex_x = (int)(wall_x * (int)SPRITE_SIZE);
-	
-	if ((cub3d->ray.hit_horizontal == false && cub3d->ray.direction.x < 0)
-		|| (cub3d->ray.hit_horizontal == true && cub3d->ray.direction.y > 0))
+	if ((cub3d->ray.hit_vertical == true && cub3d->ray.direction.x < 0)
+		|| (cub3d->ray.hit_vertical == false && cub3d->ray.direction.y > 0))
 		cub3d->img_info.tex_x = SPRITE_SIZE - cub3d->img_info.tex_x - 1;
-
-	if (cub3d->ray.hit_horizontal == true)
+	if (cub3d->ray.hit_vertical == false)
 	{
 		if (cub3d->ray.direction.y < 0)
 			cub3d->texture.index = NO;
 		else
 			cub3d->texture.index = SO;
 	}
-	else if (cub3d->ray.hit_horizontal == false)
+	else if (cub3d->ray.hit_vertical == true)
 	{
 		if (cub3d->ray.direction.x < 0)
-			cub3d->texture.index = EA;
-		else
 			cub3d->texture.index = WE;
+		else
+			cub3d->texture.index = EA;
 	}
 }
 

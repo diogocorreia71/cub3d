@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/20 15:03:38 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:31:31 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char *argv[])
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
-	#//TODO map6.cub and map8.cub check for leaks (sp	rites error induced)	
+	#//TODO map6.cub and map8.cub check for leaks (sprites error induced)	
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
 	cub3d.sprite[1] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[SO]);
 	cub3d.sprite[2] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[EA]);
@@ -58,7 +58,7 @@ int	main(int argc, char *argv[])
 	mlx_hook(cub3d.window, DestroyNotify, ButtonPressMask, ft_end_game, &cub3d);
 	mlx_hook(cub3d.window, KeyPress, KeyPressMask, ft_keypress, &cub3d);
 	mlx_hook(cub3d.window, KeyRelease, KeyReleaseMask, ft_keyrelease,
-		&cub3d.player);
+		&cub3d);
 	ft_init_player_pos(&cub3d);
 	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d);
 	mlx_loop(cub3d.lib);

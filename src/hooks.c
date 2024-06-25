@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:00:08 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/24 12:32:47 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:22:30 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,32 @@ int	ft_end_game(t_game *cub3d)
 
 int	ft_keypress(int keycode, t_game *cub3d)
 {
-	if (keycode == ESC)
+	cub3d->key = keycode;
+	if (cub3d->key == ESC)
 		ft_end_game(cub3d);
-	else if (keycode == W)
+	else if (cub3d->key == W)
 		cub3d->player.movement.y = 1;
-	else if (keycode == S)
+	else if (cub3d->key == S)
 		cub3d->player.movement.y = -1;
-	else if (keycode == A)
+	else if (cub3d->key == A)
 		cub3d->player.movement.x = -1;
-	else if (keycode == D)
+	else if (cub3d->key == D)
 		cub3d->player.movement.x = 1;
-	else if (keycode == LEFT)
+	else if (cub3d->key == LEFT)
 		cub3d->player.angle = -1;
-	else if (keycode == RIGHT)
+	else if (cub3d->key == RIGHT)
 		cub3d->player.angle = 1;
 	return (EXIT_SUCCESS);
 }
 
 int	ft_keyrelease(int keycode, t_game *cub3d)
 {
-	if (keycode == W || keycode == S)
+	cub3d->key = keycode;
+	if (cub3d->key == W || cub3d->key == S)
 		cub3d->player.movement.y = 0;
-	else if (keycode == A || keycode == D)
+	else if (cub3d->key == A || cub3d->key == D)
 		cub3d->player.movement.x = 0;
-	else if (keycode == LEFT || keycode == RIGHT)
+	else if (cub3d->key == LEFT || cub3d->key == RIGHT)
 		cub3d->player.angle = 0;
 	return (EXIT_SUCCESS);
 }

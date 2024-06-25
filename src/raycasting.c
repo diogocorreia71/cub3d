@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 12:26:36 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/24 15:47:01 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:41:51 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void    ft_dda(t_game *cub3d)
 		{
 			cub3d->ray.intersection.x += cub3d->ray.delta.x;
 			cub3d->player.int_pos_x += cub3d->ray.map_mov.x;
-			cub3d->ray.hit_horizontal = true;
+			cub3d->ray.hit_vertical = true;
 		}
 		else
 		{
 			cub3d->ray.intersection.y += cub3d->ray.delta.y;
 			cub3d->player.int_pos_y += cub3d->ray.map_mov.y;
-			cub3d->ray.hit_horizontal = false;
+			cub3d->ray.hit_vertical = false;
 		}
 		if (cub3d->map.game_map[cub3d->player.int_pos_y][cub3d->player.int_pos_x] == '1')
 			hit_flag = true;
@@ -76,12 +76,12 @@ void    ft_dda(t_game *cub3d)
 
 void    ft_distance_to_the_wall(t_game *cub3d)
 {
-	if (cub3d->ray.hit_horizontal == true)
+	if (cub3d->ray.hit_vertical == true)
 		cub3d->ray.perp_wall_dist = (cub3d->ray.intersection.x - cub3d->ray.delta.x);
 	else
 		cub3d->ray.perp_wall_dist = (cub3d->ray.intersection.y - cub3d->ray.delta.y);
 	//Calculate height of line to draw on screen
-	cub3d->img_info.line_height = abs((int)(HEIGHT / cub3d->ray.perp_wall_dist));//rui usa funcao fabs() para valor absoluto
+	cub3d->img_info.line_height = fabs((HEIGHT / cub3d->ray.perp_wall_dist));//rui usa funcao fabs() para valor absoluto
 	//calculate lowest and highest pixel to fill in current stripe
 	cub3d->img_info.draw_start = HEIGHT / 2 - cub3d->img_info.line_height / 2 ;
 	if(cub3d->img_info.draw_start < 0)
@@ -99,7 +99,7 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 	int	i;
 
 	i = -1;
-	cub3d->ray.hit_horizontal = false;
+	cub3d->ray.hit_vertical = false;
 	while (++i <= (int)WIDTH)
 	{
 		ft_cast_a_ray(cub3d, i);

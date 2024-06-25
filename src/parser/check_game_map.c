@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/19 10:15:11 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:07:30 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_check_invalid_chars(t_game *cub3d)
 					cub3d->player.tile  = cub3d->map.game_map[i][k];
 					cub3d->player.pos.x = i;
 					cub3d->player.pos.y = k;
+					cub3d->map.game_map[i][k] = '0';
 				}
 			}
 		}

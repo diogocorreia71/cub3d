@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 15:12:41 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/24 15:48:41 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:01:56 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_color(t_game *cub3d, int i, char flag)
 	}
 }
 
-void	start_image_buffer(t_game *cub3d)
+void	ft_image_buffer(t_game *cub3d)
 {
 	cub3d->image.img_ptr = mlx_new_image(cub3d->lib, WIDTH, HEIGHT);
 	cub3d->image.address = mlx_get_data_addr(cub3d->image.img_ptr, &cub3d->image.bits_per_pixel,
