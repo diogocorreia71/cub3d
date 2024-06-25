@@ -6,7 +6,7 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 14:34:42 by jmarinho          #+#    #+#              #
-#    Updated: 2024/06/25 12:05:22 by jmarinho         ###   ########.fr        #
+#    Updated: 2024/06/25 15:45:39 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_PATH = src/
 VPATH = $(SRC_PATH) $(SRC_PATH)parser $(SRC_PATH)events $(SRC_PATH)sprites
 SRC = main.c parser_utils.c check_b4_init.c copy_config_map.c copy_game_map.c \
 	check_game_map.c make_game.c image.c sprite_utils.c hooks.c raycasting.c \
-	movements.c vectors.c \
+	movements.c \
 
 OBJ_PATH = obj/
 OBJFILES = $(SRC:.c=.o)
