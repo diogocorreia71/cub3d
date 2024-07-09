@@ -25,9 +25,12 @@ void	pixel_put(t_image *img, int pixelX, int pixelY, int color)
 {
 	char	*dst;
 
-	dst = img->address + (pixelY * img->line_length
-			+ pixelX * (img->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (pixelX >= 0 && pixelX < (int)WIDTH && pixelY >= 0 && pixelY < (int)HEIGHT)
+	{
+		dst = img->address + (pixelY * img->line_length
+				+ pixelX * (img->bits_per_pixel / 8));
+		*(unsigned int *)dst = color;
+	}
 }
 
 void	ft_sprites(t_game *cub3d, int i)
@@ -35,7 +38,7 @@ void	ft_sprites(t_game *cub3d, int i)
 	int	texture;
 	int	tex_y;
 
-	while (cub3d->img_info.draw_start < cub3d->img_info.draw_end)
+	while (cub3d->img_info.draw_start < cub3d->img_info.draw_end) //sem esta condição dá leak. Com a condição o jogo bloqueia
 	{
 		tex_y = (int)cub3d->img_info.pos_texture & (SPRITE_SIZE - 1);
 		cub3d->img_info.pos_texture += cub3d->img_info.scale;

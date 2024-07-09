@@ -119,5 +119,5 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->lib, cub3d->window,
 		cub3d->image.img_ptr, 0, 0);
-	mlx_destroy_image(cub3d->lib, cub3d->image.img_ptr);
+	// mlx_destroy_image(cub3d->lib, cub3d->image.img_ptr);
 }
