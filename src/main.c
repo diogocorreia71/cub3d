@@ -41,7 +41,7 @@ int	main(int argc, char *argv[])
 {
 	t_game	cub3d;
 
-	ft_check_b4_init(argc, argv, &cub3d);
+	ft_check_b4_init(argc, argv, &cub3d); //linhas alocadas a mais?
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
