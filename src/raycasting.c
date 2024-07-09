@@ -89,6 +89,8 @@ void	ft_distance_to_the_wall(t_game *cub3d)
 	else
 		cub3d->ray.perp_wall_dist = (cub3d->ray.intersection.y
 				- cub3d->ray.delta.y);
+	if (cub3d->ray.perp_wall_dist < 0.0001)
+		cub3d->ray.perp_wall_dist = 0.0001;
 	cub3d->img_info.line_height = fabs((HEIGHT / cub3d->ray.perp_wall_dist));
 	cub3d->img_info.draw_start = HEIGHT / 2 - cub3d->img_info.line_height / 2 ;
 	if (cub3d->img_info.draw_start < 0)
@@ -109,6 +111,7 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 	cub3d->ray.hit_vertical = false;
 	while (++i <= (int)WIDTH)
 	{
+		printf("Casting ray %d\n", i); //debug logging
 		ft_cast_a_ray(cub3d, i);
 		ft_dda(cub3d);
 		ft_distance_to_the_wall(cub3d);
@@ -119,5 +122,5 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->lib, cub3d->window,
 		cub3d->image.img_ptr, 0, 0);
-	// mlx_destroy_image(cub3d->lib, cub3d->image.img_ptr);
+	mlx_destroy_image(cub3d->lib, cub3d->image.img_ptr);
 }

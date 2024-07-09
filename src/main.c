@@ -61,6 +61,6 @@ int	main(int argc, char *argv[])
 	mlx_hook(cub3d.window, KeyRelease, KeyReleaseMask, ft_keyrelease,
 		&cub3d);
 	ft_init_player_pos(&cub3d);
-	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d); //está a dar leak no pixel_put quando vai para a frente ou esquerda
+	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d); //leak fix distance to wall. Evitar divisão por 0 da perp_wall_dist
 	mlx_loop(cub3d.lib);
 }
