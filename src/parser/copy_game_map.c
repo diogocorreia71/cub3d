@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_game_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:35:11 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 19:06:45 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:32:55 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	ft_copy_game_map(t_game *cub3d)
 	}
 	ft_copy_game_map_aux(cub3d, line, fd);
 	
-	for (i = 0; i < cub3d->map.total_lines; i++) //print map line debug
-	{
-		printf("Map line %d: %s\n", i, cub3d->map.game_map[i]);
-	}
+	// for (i = 0; i < cub3d->map.total_lines; i++) //print map line debug
+	// {
+	// 	printf("Map line %d: %s\n", i, cub3d->map.game_map[i]);
+	// }
 	close(fd);
 }

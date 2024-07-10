@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:54:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/26 10:02:11 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:59:43 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_player_movements(t_game *cub3d)
 		if (cub3d->map.game_map[(int)new_pos.y][(int)new_pos.x] == '0')
 			player->pos = new_pos;
 	}
-	else if (cub3d->key == A || cub3d->key == D)
+	if (cub3d->key == A || cub3d->key == D)
 	{
 		new_pos.x = player->pos.x + player->plane.pos.x
 			* SPEED * player->movement.x;
