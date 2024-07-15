@@ -45,8 +45,8 @@ int	main(int argc, char *argv[])
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
-	#//TODO map2.cub e map3.cub nao funcionam (colors?)
-	#//TODO map6.cub and map8.cub check for leaks (sprites error induced)	
+	//TODO map2.cub e map3.cub nao funcionam (colors?)
+	//TODO map6.cub and map8.cub check for leaks (sprites error induced)	
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
 	cub3d.sprite[1] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[SO]);
 	cub3d.sprite[2] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[EA]);

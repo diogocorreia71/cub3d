@@ -88,10 +88,5 @@ void	ft_copy_game_map(t_game *cub3d)
 		line = get_next_line(fd);
 	}
 	ft_copy_game_map_aux(cub3d, line, fd);
-	
-	// for (i = 0; i < cub3d->map.total_lines; i++) //print map line debug
-	// {
-	// 	printf("Map line %d: %s\n", i, cub3d->map.game_map[i]);
-	// }
 	close(fd);
 }

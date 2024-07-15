@@ -38,12 +38,6 @@ void	ft_check_invalid_chars(t_game *cub3d)
 	int		pos;
 
 	i = -1;
-	// for (int i = 0; i < cub3d->map.total_lines; i++) //print map line debug
-	// {
-	// 	for (int j = 0; j < (int)ft_strlen(cub3d->map.game_map[i]); j++)
-	// 		printf("%c",cub3d->map.game_map[i][j]);
-	// }
-	// exit(0);
 	while (cub3d->map.game_map[++i])
 	{
 		k = -1;

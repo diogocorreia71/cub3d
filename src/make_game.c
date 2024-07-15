@@ -34,7 +34,7 @@ void	ft_init_player_pos(t_game *cub3d)
 
 int	ft_make_game(t_game *cub3d)
 {
-	printf("%f, %f\n", cub3d->player.pos.x, cub3d->player.pos.y);
+	// printf("%f, %f\n", cub3d->player.pos.x, cub3d->player.pos.y);
 	if (cub3d->key)
 		ft_player_movements(cub3d);
 	ft_image_buffer(cub3d);

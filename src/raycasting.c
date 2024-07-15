@@ -111,7 +111,6 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 	cub3d->ray.hit_vertical = false;
 	while (++i <= (int)WIDTH)
 	{
-		// printf("Casting ray %d\n", i); //debug logging
 		ft_cast_a_ray(cub3d, i);
 		ft_dda(cub3d);
 		ft_distance_to_the_wall(cub3d);
