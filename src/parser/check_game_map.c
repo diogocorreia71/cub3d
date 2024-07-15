@@ -24,7 +24,7 @@ void	ft_other_if(t_game *cub3d, int pos, int i, int k)
 		else
 		{
 			cub3d->player.tile = cub3d->map.game_map[i][k];
-			cub3d->player.pos.x = k; //x e y trocados (fix carlos)
+			cub3d->player.pos.x = k; // x e y trocados (fix carlos)
 			cub3d->player.pos.y = i;
 			cub3d->map.game_map[i][k] = '0';
 		}

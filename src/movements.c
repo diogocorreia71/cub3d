@@ -20,7 +20,6 @@ void	ft_player_movements(t_game *cub3d)
 	player = &cub3d->player;
 	new_pos.x = 0;
 	new_pos.y = 0;
-	
 	new_pos.x = player->pos.x + player->direction.x
 		* SPEED * player->movement.y;
 	new_pos.y = player->pos.y + player->direction.y
