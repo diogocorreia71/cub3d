@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_game_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:35:11 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 19:06:45 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:32:55 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ void	ft_copy_game_map(t_game *cub3d)
 		line = get_next_line(fd);
 	}
 	ft_copy_game_map_aux(cub3d, line, fd);
+	close(fd);
 }

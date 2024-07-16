@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 12:26:36 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 18:08:57 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:30:47 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ void	ft_distance_to_the_wall(t_game *cub3d)
 	else
 		cub3d->ray.perp_wall_dist = (cub3d->ray.intersection.y
 				- cub3d->ray.delta.y);
+	if (cub3d->ray.perp_wall_dist < 0.0001)
+		cub3d->ray.perp_wall_dist = 0.0001;
 	cub3d->img_info.line_height = fabs((HEIGHT / cub3d->ray.perp_wall_dist));
-	cub3d->img_info.draw_start = HEIGHT / 2 - cub3d->img_info.line_height / 2 ;
+	cub3d->img_info.draw_start = HEIGHT / 2 - cub3d->img_info.line_height / 2;
 	if (cub3d->img_info.draw_start < 0)
 		cub3d->img_info.draw_start = 0;
 	cub3d->img_info.draw_end = HEIGHT / 2 + cub3d->img_info.line_height / 2;

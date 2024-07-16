@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:00:08 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 18:12:46 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:55:48 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ int	ft_keypress(int keycode, t_game *cub3d)
 	cub3d->key = keycode;
 	if (cub3d->key == ESC)
 		ft_end_game(cub3d);
-	else if (cub3d->key == W)
+	if (cub3d->key == W)
 		cub3d->player.movement.y = 1;
-	else if (cub3d->key == S)
+	if (cub3d->key == S)
 		cub3d->player.movement.y = -1;
-	else if (cub3d->key == A)
+	if (cub3d->key == A)
 		cub3d->player.movement.x = -1;
-	else if (cub3d->key == D)
+	if (cub3d->key == D)
 		cub3d->player.movement.x = 1;
-	else if (cub3d->key == LEFT)
+	if (cub3d->key == LEFT)
 		cub3d->player.angle = -1;
-	else if (cub3d->key == RIGHT)
+	if (cub3d->key == RIGHT)
 		cub3d->player.angle = 1;
 	return (EXIT_SUCCESS);
 }
@@ -60,9 +60,9 @@ int	ft_keyrelease(int keycode, t_game *cub3d)
 	cub3d->key = keycode;
 	if (cub3d->key == W || cub3d->key == S)
 		cub3d->player.movement.y = 0;
-	else if (cub3d->key == A || cub3d->key == D)
+	if (cub3d->key == A || cub3d->key == D)
 		cub3d->player.movement.x = 0;
-	else if (cub3d->key == LEFT || cub3d->key == RIGHT)
+	if (cub3d->key == LEFT || cub3d->key == RIGHT)
 		cub3d->player.angle = 0;
 	return (EXIT_SUCCESS);
 }

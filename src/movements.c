@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:54:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 18:10:58 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:59:43 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,18 @@ void	ft_player_movements(t_game *cub3d)
 	player = &cub3d->player;
 	new_pos.x = 0;
 	new_pos.y = 0;
-	if (cub3d->key == W || cub3d->key == S)
-	{
-		new_pos.x = player->pos.x + player->direction.x
-			* SPEED * player->movement.y;
-		new_pos.y = player->pos.y + player->direction.y
-			* SPEED * player->movement.y;
-		if (cub3d->map.game_map[(int)new_pos.y][(int)new_pos.x] == '0')
-			player->pos = new_pos;
-	}
-	else if (cub3d->key == A || cub3d->key == D)
-	{
-		new_pos.x = player->pos.x + player->plane.pos.x
-			* SPEED * player->movement.x;
-		new_pos.y = player->pos.y + player->plane.pos.y
-			* SPEED * player->movement.x;
-		if (cub3d->map.game_map[(int)new_pos.y][(int)new_pos.x] == '0')
-			player->pos = new_pos;
-	}
+	new_pos.x = player->pos.x + player->direction.x
+		* SPEED * player->movement.y;
+	new_pos.y = player->pos.y + player->direction.y
+		* SPEED * player->movement.y;
+	if (cub3d->map.game_map[(int)new_pos.y][(int)new_pos.x] == '0')
+		player->pos = new_pos;
+	new_pos.x = player->pos.x + player->plane.pos.x
+		* SPEED * player->movement.x;
+	new_pos.y = player->pos.y + player->plane.pos.y
+		* SPEED * player->movement.x;
+	if (cub3d->map.game_map[(int)new_pos.y][(int)new_pos.x] == '0')
+		player->pos = new_pos;
 	ft_rotate(cub3d);
 }
 

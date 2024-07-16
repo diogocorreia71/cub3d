@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: diodos-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 11:55:08 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/04/24 20:47:53 by jmarinho         ###   ########.fr       */
+/*   Created: 2023/04/20 11:22:22 by diodos-s          #+#    #+#             */
+/*   Updated: 2023/04/20 11:48:20 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trim;
-	size_t	i;
-	size_t	size;
+	int		i;
+	int		j;
+	char	*str;
 
 	i = 0;
-	size = ft_strlen(s1);
-	while (i <= size && ft_strchr(set, s1[i]))
+	j = ft_strlen(s1) - 1;
+	while (i <= j && ft_strchr(set, s1[i]))
 		i++;
-	if (i > size)
-		return (ft_strdup(s1 + size));
-	while (size >= 0 && ft_strchr(set, s1[size - 1]))
-		size--;
-	trim = malloc(sizeof(char) * (size - i + 1));
-	if (trim == NULL)
+	if (i > j)
+		return (ft_strdup(s1 + j + 1));
+	while (j >= 0 && ft_strchr(set, s1[j]))
+		j--;
+	str = malloc(sizeof(char) * (j - i + 2));
+	if (!str)
 		return (NULL);
-	ft_strlcpy(trim, &s1[i], size - i + 1);
-	return (trim);
+	ft_strlcpy(str, &s1[i], j - i + 2);
+	return (str);
 }
