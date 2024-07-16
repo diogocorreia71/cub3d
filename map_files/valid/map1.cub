@@ -1,4 +1,4 @@
-NO ./sprites/north_wall.xpm
+NO ./sprites/north_wall.xpmm
 SO ./sprites/south_wall.xpm
 EA ./sprites/east_wall.xpm
 WE ./sprites/west_wall.xpm

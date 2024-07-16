@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 12:05:37 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:30:40 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	main(int argc, char *argv[])
 	mlx_hook(cub3d.window, KeyRelease, KeyReleaseMask, ft_keyrelease,
 		&cub3d);
 	ft_init_player_pos(&cub3d);
-	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d); //leak fix distance to wall. Evitar divisão por 0 da perp_wall_dist
+	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d);
 	mlx_loop(cub3d.lib);
 }

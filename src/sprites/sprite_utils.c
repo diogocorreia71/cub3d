@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 18:24:30 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:57:24 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,25 @@ void	ft_get_img_address(t_image *img)
 			&img->line_length, &img->endian);
 }
 
+void	ft_check_xpm(t_game	*cub3d)
+{
+	int i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (ft_strnstr(cub3d->map.config_map[i] + ft_strlen(cub3d->map.config_map[i]) - 4, ".xpm", 4))
+			i++;
+		else
+			ft_perror("Error\nInvalid. Try <sprite_name>.xpm\n", NULL);
+	}
+}
+
 t_sprite	ft_get_sprite_info(t_game *cub3d, char *texture)
 {
 	t_sprite	sprite;
 
+	ft_check_xpm(cub3d);
 	sprite.image.img_ptr = mlx_xpm_file_to_image(cub3d->lib, texture,
 			&sprite.width, &sprite.height);
 	if (!sprite.image.img_ptr)
