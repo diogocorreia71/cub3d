@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/10 13:40:49 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:05:37 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ int	main(int argc, char *argv[])
 {
 	t_game	cub3d;
 
-	ft_check_b4_init(argc, argv, &cub3d); //linhas alocadas a mais?
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
-	//TODO map2.cub e map3.cub nao funcionam (colors?)
-	//TODO map6.cub and map8.cub check for leaks (sprites error induced)	
+	ft_check_b4_init(argc, argv, &cub3d);
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
 	cub3d.sprite[1] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[SO]);
 	cub3d.sprite[2] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[EA]);

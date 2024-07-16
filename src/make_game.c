@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:33:43 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/10 13:44:30 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:08:38 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_init_player_pos(t_game *cub3d)
 
 int	ft_make_game(t_game *cub3d)
 {
-	// printf("%f, %f\n", cub3d->player.pos.x, cub3d->player.pos.y);
 	if (cub3d->key)
 		ft_player_movements(cub3d);
 	ft_image_buffer(cub3d);
