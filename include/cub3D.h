@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/26 10:49:14 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:57:36 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define SPRITE_SIZE 64
 # define SPEED 0.025
 # define ROTATION_SPEED 1
+# define BUFFER_DISTANCE 0.1
 
 # define COS 0.99995000041
 # define SIN 0.00999983333
@@ -194,6 +195,8 @@ void		ft_color(t_game *cub3d, int i, char flag);
 
 //Movements
 void		ft_player_movements(t_game *cub3d);
+int 		ft_is_valid_move_with_buffer(t_game *cub3d, t_pos new_pos);
+int 		ft_check_buffer_zone(t_game *cub3d, t_pos new_pos);
 void		ft_rotate(t_game *cub3d);
 
 #endif
