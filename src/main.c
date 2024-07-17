@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 14:50:41 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:49:40 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(int argc, char *argv[])
 {
 	t_game	cub3d;
 
-	// invalid map8 leak ft_get_sprite_info
-	// empty map leak
+	//leak nos mapas todos na ft_check_if_empty
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
+	ft_memset(cub3d.sprite, 0, sizeof(t_sprite) * 4);
 	ft_check_b4_init(argc, argv, &cub3d);
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
 	cub3d.sprite[1] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[SO]);
@@ -64,3 +64,4 @@ int	main(int argc, char *argv[])
 	mlx_loop_hook(cub3d.lib, ft_make_game, &cub3d);
 	mlx_loop(cub3d.lib);
 }
+

@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 14:47:09 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/17 16:52:51 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ typedef struct s_game
 	char		*file;
 	void		*lib;
 	void		*window;
-	t_sprite	sprite[6];
+	t_sprite	sprite[4];
 	t_sprite	texture;
 	t_player	player;
 	t_image		image;
