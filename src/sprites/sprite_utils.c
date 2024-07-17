@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 15:57:24 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/17 12:28:18 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,13 @@ void	ft_get_img_address(t_image *img)
 
 void	ft_check_xpm(t_game	*cub3d)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if (ft_strnstr(cub3d->map.config_map[i] + ft_strlen(cub3d->map.config_map[i]) - 4, ".xpm", 4))
+		if (ft_strnstr(cub3d->map.config_map[i]
+				+ ft_strlen(cub3d->map.config_map[i]) - 4, ".xpm", 4))
 			i++;
 		else
 			ft_perror("Error\nInvalid. Try <sprite_name>.xpm\n", NULL);

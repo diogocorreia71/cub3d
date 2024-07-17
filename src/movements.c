@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:54:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 14:55:53 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/17 12:29:59 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	ft_is_valid_move_with_buffer(t_game *cub3d, t_pos new_pos)
 
 	new_x = (int)new_pos.x;
 	new_y = (int)new_pos.y;
-	if (new_x < 0 || new_y < 0 || new_y >= cub3d->map.total_lines || new_x >= (int)ft_strlen(cub3d->map.game_map[new_y]))
+	if (new_x < 0 || new_y < 0 || new_y >= cub3d->map.total_lines
+		|| new_x >= (int)ft_strlen(cub3d->map.game_map[new_y]))
 		return (0);
 	if (cub3d->map.game_map[new_y][new_x] != '0')
 		return (0);
@@ -56,8 +57,8 @@ int	ft_check_buffer_zone(t_game *cub3d, t_pos new_pos)
 	double	angle;
 	double	check_x;
 	double	check_y;
-	int	map_x;
-	int	map_y;
+	int		map_x;
+	int		map_y;
 
 	angle = 0;
 	if (angle < 2 * 3.1415)
@@ -66,7 +67,8 @@ int	ft_check_buffer_zone(t_game *cub3d, t_pos new_pos)
 		check_y = new_pos.y + sin(angle) * BUFFER_DISTANCE;
 		map_x = (int)check_x;
 		map_y = (int)check_y;
-		if (map_x < 0 || map_y < 0 || map_y >= cub3d->map.total_lines || map_x >= (int)ft_strlen(cub3d->map.game_map[map_y]))
+		if (map_x < 0 || map_y < 0 || map_y >= cub3d->map.total_lines
+			|| map_x >= (int)ft_strlen(cub3d->map.game_map[map_y]))
 			return (0);
 		if (cub3d->map.game_map[map_y][map_x] != '0')
 			return (0);
