@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 12:28:18 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:38:43 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_check_xpm(t_game	*cub3d)
 				+ ft_strlen(cub3d->map.config_map[i]) - 4, ".xpm", 4))
 			i++;
 		else
-			ft_perror("Error\nInvalid. Try <sprite_name>.xpm\n", NULL);
+			ft_perror("Error\nInvalid. Try <sprite_name>.xpm\n", cub3d);
 	}
 }
 
