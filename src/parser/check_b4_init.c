@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_b4_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/07/17 14:49:27 by jmarinho         ###   ########.fr       */
+=======
+/*   Updated: 2024/07/17 14:43:10 by diodos-s         ###   ########.fr       */
+>>>>>>> 7e25cc2e8948ee980fe1af07c41e2dd4e4efa5b6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +36,11 @@ void	ft_count_map_lines(t_game *cub3d)
 	close(fd);
 }
 
+<<<<<<< HEAD
 int	ft_check_filename(t_game *cub3d)
+=======
+int	ft_check_filename(t_game	*cub3d)
+>>>>>>> 7e25cc2e8948ee980fe1af07c41e2dd4e4efa5b6
 {
 	int	fd;
 
