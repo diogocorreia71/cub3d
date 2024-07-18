@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 11:04:04 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:16:27 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	ft_check_invalid_chars(t_game *cub3d)
 		}
 	}
 	if (cub3d->map.player_count == 0)
-		ft_perror("ERROR\nNo player on game map\n",
-				cub3d);
+		ft_perror("ERROR\nNo player on game map\n", cub3d);
 }
 
 void	ft_check_game_map(t_game *cub3d)

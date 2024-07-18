@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 09:52:16 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:42:43 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_count_map_lines(t_game *cub3d)
 		free(line);
 	}
 	close(fd);
-
 }
 
 void	ft_check_if_empty(t_game	*cub3d)
@@ -42,15 +41,18 @@ void	ft_check_if_empty(t_game	*cub3d)
 	fd = open(cub3d->file, O_RDONLY);
 	if (fd < 0)
 		ft_perror("Error\nCouldn't open requested file\n", cub3d);
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		if (ft_check_if_line_is_blank(line))
 		{
 			free(line);
+			line = get_next_line(fd);
 			continue ;
 		}
 		cub3d->map.total_lines++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	if (cub3d->map.total_lines == 0)
