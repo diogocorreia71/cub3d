@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_b4_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 09:52:16 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:03:10 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,8 @@ int	ft_check_filename(t_game	*cub3d)
 	return (0);
 }
 
-void	ft_check_b4_init(int ac, char **av, t_game *cub3d)
+void	ft_check_b4_init(char **av, t_game *cub3d)
 {
-	if (ac != 2)
-		ft_perror("Error\nNumber of args are invalid!\n", cub3d);
 	cub3d->file = av[1];
 	ft_memset(&cub3d->map, 0, sizeof(t_map));
 	ft_check_if_empty(cub3d);
@@ -92,13 +90,13 @@ void	ft_perror(char *msg, t_game *cub3d)
 
 	i = -1;
 	printf("%s", msg);
+	if (!cub3d)
+		exit (EXIT_FAILURE);
 	while (++i < 4)
 	{
 		if (cub3d->sprite[i].image.img_ptr)
 			mlx_destroy_image(cub3d->lib, cub3d->sprite[i].image.img_ptr);
 	}
-	if (!cub3d)
-		exit (EXIT_FAILURE);
 	if (cub3d->lib)
 	{
 		mlx_destroy_display(cub3d->lib);

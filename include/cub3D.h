@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 16:52:51 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:00:38 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ typedef struct s_game
 }	t_game;
 
 // Map
-void		ft_check_b4_init(int ac, char **av, t_game *cub3d);
+void		ft_check_b4_init(char **av, t_game *cub3d);
 void		ft_check_game_map(t_game *cub3d);
 void		ft_copy_config_map(t_game *cub3d);
 void		ft_copy_game_map(t_game *cub3d);
