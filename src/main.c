@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 12:07:10 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:09:13 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int argc, char *argv[])
 {
 	t_game	cub3d;
 
+	if (argc != 2)
+		ft_perror("ERROR\nInvalid nbr of args\n", NULL);
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
 		ft_perror("ERROR\nmlx_init failure\n", NULL);
