@@ -42,10 +42,10 @@ int	main(int argc, char *argv[])
 	t_game	cub3d;
 
 	if (argc != 2)
-		ft_perror("ERROR\nInvalid nbr of args\n", NULL);
+		ft_perror("Error\nInvalid nbr of args\n", NULL);
 	cub3d.lib = mlx_init();
 	if (cub3d.lib == NULL)
-		ft_perror("ERROR\nmlx_init failure\n", NULL);
+		ft_perror("Error\nmlx_init failure\n", NULL);
 	ft_memset(cub3d.sprite, 0, sizeof(t_sprite) * 4);
 	ft_check_b4_init(argv, &cub3d);
 	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
@@ -56,7 +56,7 @@ int	main(int argc, char *argv[])
 	cub3d.f_color = ft_shift_color(ft_conv_str_to_int(cub3d.map.config_map[F]));
 	cub3d.window = mlx_new_window(cub3d.lib, WIDTH, HEIGHT, "cub3D");
 	if (cub3d.window == NULL)
-		ft_perror("ERROR\nMalloc for cub3d.window failed\n", &cub3d);
+		ft_perror("Error\nMalloc for cub3d.window failed\n", &cub3d);
 	mlx_hook(cub3d.window, DestroyNotify, ButtonPressMask, ft_end_game, &cub3d);
 	mlx_hook(cub3d.window, KeyPress, KeyPressMask, ft_keypress, &cub3d);
 	mlx_hook(cub3d.window, KeyRelease, KeyReleaseMask, ft_keyrelease,

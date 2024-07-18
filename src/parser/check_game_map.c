@@ -19,7 +19,7 @@ void	ft_other_if(t_game *cub3d, int pos, int i, int k)
 	{
 		cub3d->map.player_count++;
 		if (cub3d->map.player_count != 1)
-			ft_perror("ERROR\nMore than one player on game map\n",
+			ft_perror("Error\nMore than one player on game map\n",
 				cub3d);
 		else
 		{
@@ -47,12 +47,12 @@ void	ft_check_invalid_chars(t_game *cub3d)
 			if (pos != '0' && pos != '1' && pos != 'N' && pos != 'S'
 				&& pos != 'E' && pos != 'W' && pos != ' ' && pos != '\t'
 				&& pos != '\n')
-				ft_perror("ERROR\nInvalid characters on game map\n", cub3d);
+				ft_perror("Error\nInvalid characters on game map\n", cub3d);
 			ft_other_if(cub3d, pos, i, k);
 		}
 	}
 	if (cub3d->map.player_count == 0)
-		ft_perror("ERROR\nNo player on game map\n", cub3d);
+		ft_perror("Error\nNo player on game map\n", cub3d);
 }
 
 void	ft_check_game_map(t_game *cub3d)

@@ -23,7 +23,7 @@ void	ft_check_if_complete(t_game *cub3d, char *line, int fd)
 		}
 		free (cub3d->map.clean_line);
 		close(fd);
-		ft_perror("ERROR\nWrong configuration detected\n", cub3d);
+		ft_perror("Error\nWrong configuration detected\n", cub3d);
 	}
 }
 
@@ -34,7 +34,7 @@ void	ft_copy_config_map_cicle_aux(t_game *cub3d, char *line, int fd)
 	{
 		free (line);
 		close(fd);
-		ft_perror ("ERROR\nMalloc for cub3d->map.clean_line failed\n", cub3d);
+		ft_perror ("Error\nMalloc for cub3d->map.clean_line failed\n", cub3d);
 	}
 	cub3d->map.clean_line[0] = '\0';
 }

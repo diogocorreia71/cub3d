@@ -83,9 +83,9 @@ t_sprite	ft_get_sprite_info(t_game *cub3d, char *texture)
 	sprite.image.img_ptr = mlx_xpm_file_to_image(cub3d->lib, texture,
 			&sprite.width, &sprite.height);
 	if (!sprite.image.img_ptr)
-		ft_perror("ERROR\nMalloc of sprite.image.img_ptr\n", cub3d);
+		ft_perror("Error\nMalloc of sprite.image.img_ptr\n", cub3d);
 	ft_get_img_address(&sprite.image);
 	if (!sprite.image.address)
-		ft_perror("ERROR\nMalloc of sprite.image.address\n", cub3d);
+		ft_perror("Error\nMalloc of sprite.image.address\n", cub3d);
 	return (sprite);
 }

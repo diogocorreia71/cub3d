@@ -36,7 +36,7 @@ char	*ft_copy_game_map_checker(t_game *cub3d, char *line, int fd)
 			line = get_next_line(fd);
 		}
 		close(fd);
-		ft_perror("ERROR\nInvalid Map\n", cub3d);
+		ft_perror("Error\nInvalid Map\n", cub3d);
 	}
 	return (line);
 }
@@ -76,10 +76,10 @@ void	ft_copy_game_map(t_game *cub3d)
 
 	cub3d->map.game_map = ft_calloc(sizeof(char *), cub3d->map.total_lines);
 	if (!cub3d->map.game_map)
-		ft_perror ("ERROR\nCalloc for cub3d->map.game_map failed\n", cub3d);
+		ft_perror ("Error\nCalloc for cub3d->map.game_map failed\n", cub3d);
 	fd = open(cub3d->file, O_RDONLY);
 	if (fd < 0)
-		ft_perror("ERROR\nCouldn't open requested file\n", cub3d);
+		ft_perror("Error\nCouldn't open requested file\n", cub3d);
 	line = get_next_line(fd);
 	i = -1;
 	while (++i < cub3d->map.lines_to_map)

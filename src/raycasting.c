@@ -109,7 +109,7 @@ void	ft_raycast_by_lodev(t_game *cub3d)
 
 	i = -1;
 	cub3d->ray.hit_vertical = false;
-	while (++i <= (int)WIDTH)
+	while (++i <= ((int)WIDTH - 1))
 	{
 		ft_cast_a_ray(cub3d, i);
 		ft_dda(cub3d);
