@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_game_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 12:08:51 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:04:04 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	ft_check_invalid_chars(t_game *cub3d)
 			ft_other_if(cub3d, pos, i, k);
 		}
 	}
+	if (cub3d->map.player_count == 0)
+		ft_perror("ERROR\nNo player on game map\n",
+				cub3d);
 }
 
 void	ft_check_game_map(t_game *cub3d)
