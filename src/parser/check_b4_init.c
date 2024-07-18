@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_b4_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 17:47:44 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:52:16 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,15 @@ void	ft_check_if_empty(t_game	*cub3d)
 	fd = open(cub3d->file, O_RDONLY);
 	if (fd < 0)
 		ft_perror("Error\nCouldn't open requested file\n", cub3d);
-	while (1)
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		line = get_next_line(fd);
-		if (!line || ft_check_if_line_is_blank(line))
-			break ;
+		if (ft_check_if_line_is_blank(line))
+		{
+			free(line);
+			continue ;
+		}
 		cub3d->map.total_lines++;
 		free(line);
-	}
-	while (line)
-	{
-		line = get_next_line(fd);
-		free (line);
 	}
 	close(fd);
 	if (cub3d->map.total_lines == 0)
