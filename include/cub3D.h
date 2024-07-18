@@ -29,7 +29,7 @@
 
 # define WIDTH 800
 # define HEIGHT 600
-# define FOV 90	
+# define FOV 90
 # define SPRITE_SIZE 64
 # define SPEED 0.025
 # define ROTATION_SPEED 1
@@ -37,6 +37,7 @@
 
 # define COS 0.99995000041
 # define SIN 0.00999983333
+# define PI 3.14159265358
 
 # define ESC 65307
 # define W 119

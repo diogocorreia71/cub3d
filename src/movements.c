@@ -61,7 +61,7 @@ int	ft_check_buffer_zone(t_game *cub3d, t_pos new_pos)
 	int		map_y;
 
 	angle = 0;
-	if (angle < 2 * 3.1415)
+	if (angle < 2 * PI)
 	{
 		check_x = new_pos.x + cos(angle) * BUFFER_DISTANCE;
 		check_y = new_pos.y + sin(angle) * BUFFER_DISTANCE;
@@ -72,7 +72,7 @@ int	ft_check_buffer_zone(t_game *cub3d, t_pos new_pos)
 			return (0);
 		if (cub3d->map.game_map[map_y][map_x] != '0')
 			return (0);
-		angle += 3.1415 / 8;
+		angle += PI / 8;
 	}
 	return (1);
 }
@@ -89,7 +89,7 @@ void	ft_rotate(t_game *cub3d)
 	old_plane_x = player->plane.pos.x;
 	if (cub3d->key == LEFT || cub3d->key == RIGHT)
 	{
-		angle = player->angle * (double)(3.1415 / 180);
+		angle = player->angle * (double)(PI / 180);
 		player->direction.x = (player->direction.x * cos(angle)
 				- player->direction.y * sin(angle));
 		player->direction.y = (old_dir_x * sin(angle)
