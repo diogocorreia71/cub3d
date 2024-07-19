@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 12:00:38 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/19 09:32:53 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define FOV 90
 # define SPRITE_SIZE 64
 # define SPEED 0.025
-# define ROTATION_SPEED 1
+# define ROTATION_SPEED 0.6
 # define BUFFER_DISTANCE 0.1
 
 # define COS 0.99995000041

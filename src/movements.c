@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:54:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 12:29:59 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:00:00 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_rotate(t_game *cub3d)
 	old_plane_x = player->plane.pos.x;
 	if (cub3d->key == LEFT || cub3d->key == RIGHT)
 	{
-		angle = player->angle * (double)(PI / 180);
+		angle = player->angle * (double)(PI / 180)*ROTATION_SPEED;
 		player->direction.x = (player->direction.x * cos(angle)
 				- player->direction.y * sin(angle));
 		player->direction.y = (old_dir_x * sin(angle)
