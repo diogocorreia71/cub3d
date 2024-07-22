@@ -190,7 +190,7 @@ void		ft_image_buffer(t_game *cub3d);
 void		pixel_put(t_image *img, int pixelX, int pixelY, int color);
 
 //Raycasting
-void		ft_raycast_by_lodev(t_game *cub3d);
+void		ft_raycast(t_game *cub3d);
 void		ft_sprites(t_game *cub3d, int i);
 void		ft_color(t_game *cub3d, int i, char flag);
 

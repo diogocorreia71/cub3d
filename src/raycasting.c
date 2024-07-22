@@ -103,7 +103,7 @@ void	ft_distance_to_the_wall(t_game *cub3d)
 			+ cub3d->img_info.line_height / 2) * cub3d->img_info.scale;
 }
 
-void	ft_raycast_by_lodev(t_game *cub3d)
+void	ft_raycast(t_game *cub3d)
 {
 	int	i;
 

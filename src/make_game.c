@@ -37,6 +37,6 @@ int	ft_make_game(t_game *cub3d)
 	if (cub3d->key)
 		ft_player_movements(cub3d);
 	ft_image_buffer(cub3d);
-	ft_raycast_by_lodev(cub3d);
+	ft_raycast(cub3d);
 	return (EXIT_SUCCESS);
 }
