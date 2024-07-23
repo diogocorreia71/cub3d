@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:33:43 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 12:08:38 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:14:39 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_init_player_pos(t_game *cub3d)
 	else if (cub3d->player.tile == 'E')
 		cub3d->player.direction = (t_pos){dir, 0};
 	cub3d->player.movement = (t_pos){0, 0};
-	cub3d->player.plane.angle = FOV / 90;
 	cub3d->player.plane.pos.x = -cub3d->player.direction.y;
 	cub3d->player.plane.pos.y = cub3d->player.direction.x;
 	cub3d->key = 0;

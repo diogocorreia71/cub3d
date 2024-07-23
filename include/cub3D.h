@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/19 09:32:53 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:14:49 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 
 # define WIDTH 800
 # define HEIGHT 600
-# define FOV 90
 # define SPRITE_SIZE 64
 # define SPEED 0.025
 # define ROTATION_SPEED 0.6

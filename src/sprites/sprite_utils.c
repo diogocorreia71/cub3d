@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/17 16:26:40 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:00:39 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ void	ft_texture_calculus(t_game *cub3d)
 		cub3d->img_info.tex_x = SPRITE_SIZE - cub3d->img_info.tex_x - 1;
 	if (ray->hit_vertical == false)
 	{
-		if (ray->direction.y < 0)
+		if (ray->direction.y > 0)
 			cub3d->texture.index = NO;
 		else
 			cub3d->texture.index = SO;
 	}
 	else if (ray->hit_vertical == true)
 	{
-		if (ray->direction.x < 0)
+		if (ray->direction.x > 0)
 			cub3d->texture.index = WE;
 		else
 			cub3d->texture.index = EA;
