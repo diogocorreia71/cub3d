@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 14:14:49 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/23 16:40:36 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@
 # define ROTATION_SPEED 0.6
 # define BUFFER_DISTANCE 0.1
 
-# define COS 0.99995000041
-# define SIN 0.00999983333
 # define PI 3.14159265358
 
 # define ESC 65307
