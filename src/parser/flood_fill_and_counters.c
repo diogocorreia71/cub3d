@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill_and_counters.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/16 15:59:31 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:51:49 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_flood_fill(int x, int y, t_game *cub3d)
 		&& map->flood_map[y][x] != 'E' && map->flood_map[y][x] != 'W')
 	{
 		ft_free_dp((void **)map->flood_map);
-		ft_perror("ERROR\nMap is open\n", cub3d);
+		ft_perror("Error\nMap is open\n", cub3d);
 	}
 	map->flood_map[y][x] = '1';
 	ft_flood_fill(x + 1, y, cub3d);
@@ -68,7 +68,7 @@ void	ft_create_flood_map(t_game *cub3d)
 	i = -1;
 	cub3d->map.flood_map = malloc(sizeof(char *) * (cub3d->map.x + 1));
 	if (!cub3d->map.flood_map)
-		ft_perror ("ERROR\nMalloc for cub3d->map.flood_map failed\n", cub3d);
+		ft_perror ("Error\nMalloc for cub3d->map.flood_map failed\n", cub3d);
 	while (cub3d->map.game_map[++i])
 		cub3d->map.flood_map[i] = ft_strdup(cub3d->map.game_map[i]);
 	cub3d->map.flood_map[i] = NULL;

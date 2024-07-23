@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 17:46:56 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:52:12 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_check_rgb(t_game *cub3d)
 			else if (!ft_isdigit(cub3d->map.config_map[i][j])
 				&& ft_atoi(&cub3d->map.config_map[i][j]) <= 255
 				&& ft_atoi(&cub3d->map.config_map[i][j]) >= 0)
-				ft_perror("ERROR\nRGB values must be 3 and integers\n", cub3d);
+				ft_perror("Error\nRGB values must be 3 and integers\n", cub3d);
 		}
 	}
 }
