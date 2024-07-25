@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 12:12:33 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:13:39 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_shift_color(int *rgb)
 	return (color);
 }
 
-int	*ft_conv_str_to_int(char *str)
+int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 {
 	char	**split;
 	int		*int_rgb;
@@ -32,9 +32,25 @@ int	*ft_conv_str_to_int(char *str)
 	split = ft_split(str, ',');
 	int_rgb = ft_calloc(3, sizeof(int));
 	while (++i < 3)
+	{
 		int_rgb[i] = ft_atoi(split[i]);
+		if (int_rgb[i] < 0 || int_rgb[i] > 255)
+		{
+			ft_free_dp((void **)split);
+			free (int_rgb);
+			ft_perror("Error\nInvalid color\n", cub3d);
+		}
+	}
 	ft_free_dp((void **)split);
 	return (int_rgb);
+}
+
+void	ft_init_sprites(t_game *cub3d)
+{
+	cub3d->sprite[0] = ft_get_sprite_info(cub3d, cub3d->map.config_map[NO]);
+	cub3d->sprite[1] = ft_get_sprite_info(cub3d, cub3d->map.config_map[SO]);
+	cub3d->sprite[2] = ft_get_sprite_info(cub3d, cub3d->map.config_map[EA]);
+	cub3d->sprite[3] = ft_get_sprite_info(cub3d, cub3d->map.config_map[WE]);
 }
 
 int	main(int argc, char *argv[])
@@ -48,12 +64,11 @@ int	main(int argc, char *argv[])
 		ft_perror("Error\nmlx_init failure\n", NULL);
 	ft_memset(cub3d.sprite, 0, sizeof(t_sprite) * 4);
 	ft_check_b4_init(argv, &cub3d);
-	cub3d.sprite[0] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[NO]);
-	cub3d.sprite[1] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[SO]);
-	cub3d.sprite[2] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[EA]);
-	cub3d.sprite[3] = ft_get_sprite_info(&cub3d, cub3d.map.config_map[WE]);
-	cub3d.c_color = ft_shift_color(ft_conv_str_to_int(cub3d.map.config_map[C]));
-	cub3d.f_color = ft_shift_color(ft_conv_str_to_int(cub3d.map.config_map[F]));
+	ft_init_sprites(&cub3d);
+	cub3d.c_color = ft_shift_color(ft_conv_str_to_int(cub3d.map.config_map[C],
+				&cub3d));
+	cub3d.f_color = ft_shift_color(ft_conv_str_to_int(cub3d.map.config_map[F],
+				&cub3d));
 	cub3d.window = mlx_new_window(cub3d.lib, WIDTH, HEIGHT, "cub3D");
 	if (cub3d.window == NULL)
 		ft_perror("Error\nMalloc for cub3d.window failed\n", &cub3d);

@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 17:35:21 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/06/25 18:45:39 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:05:19 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ int	ft_check_all_config_flags(t_game *cub3d)
 	return (EXIT_FAILURE);
 }
 
+int	ft_check_empty_colors(char *line)
+{
+	if (ft_check_if_line_is_blank(line + 1))
+		return (EXIT_FAILURE);
+	else
+		return (EXIT_SUCCESS);
+}
+
 int	ft_check_for_configs_aux(t_game *cub3d, char *line)
 {
 	if (line[0] == 'W' && line[1] == 'E' && cub3d->map.we_flag == false)
@@ -31,12 +39,16 @@ int	ft_check_for_configs_aux(t_game *cub3d, char *line)
 	}
 	else if (line[0] == 'F' && cub3d->map.f_flag == false)
 	{
+		if (ft_check_empty_colors(line))
+			return (EXIT_FAILURE);
 		cub3d->map.config_map[F] = ft_strdup(line + 1);
 		cub3d->map.f_flag = true;
 		return (EXIT_SUCCESS);
 	}
 	else if (line[0] == 'C' && cub3d->map.c_flag == false)
 	{
+		if (ft_check_empty_colors(line))
+			return (EXIT_FAILURE);
 		cub3d->map.config_map[C] = ft_strdup(line + 1);
 		cub3d->map.c_flag = true;
 		return (EXIT_SUCCESS);
