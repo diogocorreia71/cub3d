@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/25 16:05:39 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:15:03 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ void		ft_copy_game_map(t_game *cub3d);
 int			ft_check_all_config_flags(t_game *cub3d);
 void		ft_count_map_lines(t_game *cub3d);
 int			ft_check_if_line_is_blank(char *line);
+void		ft_check_invalid_chars(t_game *cub3d);
 
 //Copy_config_map_aux
 int			ft_check_for_configs(t_game *cub3d, char *line);
@@ -166,6 +167,7 @@ void		ft_free_stack_array(void **arg);
 void		ft_check_rgb(t_game *cub3d);
 void		ft_free_dp(void **arg);
 void		ft_perror(char *msg, t_game *cub3d);
+void		ft_read_next_line(t_game *cub3d, int *fd, char *line);
 
 //Sprite_utils
 t_sprite	ft_get_sprite_info(t_game *cub3d, char *texture);

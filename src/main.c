@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/25 16:13:39 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:52:24 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	ft_shift_color(int *rgb)
 	return (color);
 }
 
+void	ft_color_error(t_game *cub3d, int *int_rgb, char **split)
+{
+	ft_free_dp((void **)split);
+	free (int_rgb);
+	ft_perror("Error\nInvalid color configuration\n", cub3d);
+}
+
 int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 {
 	char	**split;
@@ -33,14 +40,16 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	int_rgb = ft_calloc(3, sizeof(int));
 	while (++i < 3)
 	{
+		if (!split[i])
+			ft_color_error(cub3d, int_rgb, split);
 		int_rgb[i] = ft_atoi(split[i]);
 		if (int_rgb[i] < 0 || int_rgb[i] > 255)
-		{
-			ft_free_dp((void **)split);
-			free (int_rgb);
-			ft_perror("Error\nInvalid color\n", cub3d);
-		}
+			ft_color_error(cub3d, int_rgb, split);
 	}
+	i = -1;
+	while (split[++i])
+	if (i > 3)
+		ft_color_error(cub3d, int_rgb, split);	
 	ft_free_dp((void **)split);
 	return (int_rgb);
 }

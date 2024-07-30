@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 11:52:12 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:39:11 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,37 @@ void	ft_free_dp(void **arg)
 	while (arg[i] != NULL && arg[i] != 0)
 	{
 		if (arg[i])
-			free(arg[i]);
+			free(arg[i]);	
 		i++;
 	}
 	free(arg);
+}
+
+void	ft_read_next_line(t_game *cub3d, int *fd, char *line)
+{
+
+	int		i;
+
+	i = -1;
+	while (ft_check_if_line_is_blank(line))
+	{
+		free (line);
+		line = get_next_line(*fd);
+	}
+/* 		if (!line)
+		{
+			close (*fd);
+			ft_perror("Error\nWrong Config42\n", cub3d);
+		} */
+	while (line[++i])
+	{
+		if (line[i] != '0' && line[i] != '1' && line[i] != 'N' && line[i] != 'S'
+			&& line[i] != 'E' && line[i] != 'W' && line[i] != ' ' && line[i] != '\t'
+			&& line[i] != '\n')
+			{
+				free(line);	
+				ft_perror("Error\nWrong Map\n", cub3d);
+			}
+	}
+		cub3d->map.lines_to_map++;
 }
