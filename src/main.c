@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/30 15:52:24 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:01:51 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	ft_free_dp((void **)split);
 	return (int_rgb);
 }
+
 
 void	ft_init_sprites(t_game *cub3d)
 {

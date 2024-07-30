@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:35:11 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/30 15:57:56 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:37:35 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_check_if_line_is_blank(char *line)
 	size_t	i;
 
 	i = 0;
-	if (!line[i])
-		return (EXIT_FAILURE);
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n')
