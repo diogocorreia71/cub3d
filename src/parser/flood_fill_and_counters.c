@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 11:51:49 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/31 10:46:15 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,16 @@ void	ft_flood_fill(int x, int y, t_game *cub3d)
 	t_map	*map;
 
 	map = &cub3d->map;
+	if (x < 0 || x >= map->y || y < 0 || y >= map->x)
+	{
+		ft_free_dp((void **)map->flood_map);
+		ft_perror("Error\nMap is open\n", cub3d);
+	}
 	if (map->flood_map[y][x] == '1')
 		return ;
-	else if (map->flood_map[y][x] != '0' && map->flood_map[y][x] != '1'
-		&& map->flood_map[y][x] != 'N' && map->flood_map[y][x] != 'S'
-		&& map->flood_map[y][x] != 'E' && map->flood_map[y][x] != 'W')
+	else if (map->flood_map[y][x] != '0' && map->flood_map[y][x] != 'N'
+		&& map->flood_map[y][x] != 'S' && map->flood_map[y][x] != 'E'
+		&& map->flood_map[y][x] != 'W')
 	{
 		ft_free_dp((void **)map->flood_map);
 		ft_perror("Error\nMap is open\n", cub3d);

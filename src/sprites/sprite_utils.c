@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 14:00:39 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/31 09:28:58 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,15 @@ void	ft_get_img_address(t_image *img)
 
 void	ft_check_xpm(t_game	*cub3d)
 {
-	int	i;
+	int		i;
+	char	*config_line;
 
 	i = 0;
 	while (i < 4)
 	{
-		if (ft_strnstr(cub3d->map.config_map[i]
-				+ ft_strlen(cub3d->map.config_map[i]) - 4, ".xpm", 4))
+		config_line = cub3d->map.config_map[i];
+		if (config_line && ft_strlen(config_line) >= 4
+			&& ft_strnstr(config_line + ft_strlen(config_line) - 4, ".xpm", 4))
 			i++;
 		else
 			ft_perror("Error\nInvalid. Try <sprite_name>.xpm\n", cub3d);

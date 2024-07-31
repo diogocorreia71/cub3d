@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/30 18:01:51 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/31 09:27:41 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	ft_free_dp((void **)split);
 	return (int_rgb);
 }
-
 
 void	ft_init_sprites(t_game *cub3d)
 {

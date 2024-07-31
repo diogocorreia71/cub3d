@@ -1,0 +1,7 @@
+NO ./sprites/north_wall.xpm
+SO ./sprites/south_wall.xpm
+WE ./sprites/west_wall.xpm
+EA ./sprites/east_wall.xpm
+
+F 0,120,0
+C 0,250,0

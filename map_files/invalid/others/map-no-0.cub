@@ -1,7 +1,7 @@
-NO ./sprites/wall.xp
-SO ./sprites/bricks.xpm
-WE ./sprites/gold.xpm
-EA ./sprites/wood.xpm
+NO ./sprites/wall4.xp
+SO ./sprites/wall1.xpm
+WE ./sprites/wall2.xpm
+EA ./sprites/wall3.xpm
 F 220,111,119
 C 225,111,200
 
