@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/23 11:52:12 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:30:28 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,10 @@ void	ft_free_dp(void **arg)
 		i++;
 	}
 	free(arg);
+}
+
+void	ft_free_line_and_read(int *fd, char *line)
+{
+	free (line);
+	line = get_next_line(*fd);
 }
