@@ -6,7 +6,7 @@
 /*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/31 09:27:41 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:41:48 by diodos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	}
 	i = -1;
 	while (split[++i])
-	if (i > 3)
+	if (i > 2)
 		ft_color_error(cub3d, int_rgb, split);	
 	ft_free_dp((void **)split);
 	return (int_rgb);

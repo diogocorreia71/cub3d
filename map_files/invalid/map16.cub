@@ -2,7 +2,7 @@ NO ./sprites/north_wall.xpm
 SO ./sprites/south_wall.xpm
 WE ./sprites/west_wall.xpm
 EA ./sprites/east_wall.xpm
-F 1,0,0,255
+F ,1,0,0,,,
 C 255,0,0
 
 1111
