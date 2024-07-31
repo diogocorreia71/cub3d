@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:48:23 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/31 11:30:37 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:59:00 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,17 @@ void	ft_copy_config_map(t_game *cub3d)
 		ft_perror("Error\nInvalid config\n", cub3d);
 	while (ft_check_if_line_is_blank(line))
 	{
-		ft_free_line_and_read(&fd, line);
+		free (line);
+		line = get_next_line(fd);
 		if (!line)
 			ft_perror("Error\nInvalid config\n", cub3d);
 		cub3d->map.lines_to_map++;
 	}
 	while (line)
-		ft_free_line_and_read(&fd, line);
+	{
+		free (line);
+		line = get_next_line(fd);
+	}
 	close(fd);
 	ft_check_rgb(cub3d);
 }
