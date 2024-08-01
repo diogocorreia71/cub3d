@@ -10,7 +10,7 @@ SO ./sprites/south_wall.xpm
 
 
 
-WE ./sprites/west_wall_wall.xpm
+WE ./sprites/west_wall.xpm
 
 
 F 0,120,0

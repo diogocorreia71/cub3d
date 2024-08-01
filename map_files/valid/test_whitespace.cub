@@ -6,7 +6,7 @@
 
 
 
-NO textures/test/north.xpm
+NO sprites/north_wall.xpm
 
 
 
@@ -15,9 +15,9 @@ NO textures/test/north.xpm
 
 
 
-SO textures/test/south.xpm
-                        WE textures/test/west.xpm
-        EA textures/test/east.xpm
+SO sprites/south_wall.xpm
+                        WE sprites/west_wall.xpm
+        EA sprites/east_wall.xpm
 
         F 20,           20,             20
 C 200,          200,200

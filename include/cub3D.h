@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/30 16:15:03 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:06:57 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,6 @@ typedef struct s_game
 	t_rays		ray;
 	int			key;
 }	t_game;
-
 // Map
 void		ft_check_b4_init(char **av, t_game *cub3d);
 void		ft_check_game_map(t_game *cub3d);
@@ -151,6 +150,9 @@ int			ft_check_all_config_flags(t_game *cub3d);
 void		ft_count_map_lines(t_game *cub3d);
 int			ft_check_if_line_is_blank(char *line);
 void		ft_check_invalid_chars(t_game *cub3d);
+int			*ft_convert_and_validate(char **split, t_game *cub3d);
+void    	ft_check_commas(char *str, t_game *cub3d);
+void	ft_color_error(t_game *cub3d, int *int_rgb, char **split);
 
 //Copy_config_map_aux
 int			ft_check_for_configs(t_game *cub3d, char *line);

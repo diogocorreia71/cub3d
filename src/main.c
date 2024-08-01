@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/31 12:41:48 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:04:41 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,15 @@ void	ft_color_error(t_game *cub3d, int *int_rgb, char **split)
 	ft_perror("Error\nInvalid color configuration\n", cub3d);
 }
 
-int	*ft_conv_str_to_int(char *str, t_game *cub3d)
+int *ft_conv_str_to_int(char *str, t_game *cub3d)
 {
-	char	**split;
-	int		*int_rgb;
-	int		i;
-
-	i = -1;
-	split = ft_split(str, ',');
-	int_rgb = ft_calloc(3, sizeof(int));
-	while (++i < 3)
-	{
-		if (!split[i])
-			ft_color_error(cub3d, int_rgb, split);
-		int_rgb[i] = ft_atoi(split[i]);
-		if (int_rgb[i] < 0 || int_rgb[i] > 255)
-			ft_color_error(cub3d, int_rgb, split);
-	}
-	i = -1;
-	while (split[++i])
-	if (i > 2)
-		ft_color_error(cub3d, int_rgb, split);	
-	ft_free_dp((void **)split);
-	return (int_rgb);
+    char    **split;
+    int     *int_rgb;
+    ft_check_commas(str, cub3d);
+    split = ft_split(str, ',');
+    int_rgb = ft_convert_and_validate(split, cub3d);
+    ft_free_dp((void **)split);
+    return (int_rgb);
 }
 
 void	ft_init_sprites(t_game *cub3d)
