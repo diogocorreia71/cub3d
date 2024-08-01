@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   check_game_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diodos-s <diodos-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:27:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/07/18 12:15:57 by diodos-s         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:21:07 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
+int	ft_check_all_config_flags(t_game *cub3d)
+{
+	if (cub3d->map.no_flag == true && cub3d->map.so_flag == true
+		&& cub3d->map.ea_flag == true && cub3d->map.we_flag == true
+		&& cub3d->map.f_flag == true && cub3d->map.c_flag == true)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
 
 void	ft_other_if(t_game *cub3d, int pos, int i, int k)
 {
