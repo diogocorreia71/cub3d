@@ -16,15 +16,12 @@ run_valgrind() {
     local log_file=$2
     
     echo "Executando valgrind no arquivo: $map_file"
-    valgrind --leak-check=full ./cub3D "$map_file" &> "$log_file"
+    output=$(valgrind --leak-check=full ./cub3D "$map_file" 2>&1)
     
-    if [ $? -ne 0 ]; then
-        echo "Falha encontrada no arquivo: $map_file"
-        echo "==== Falha no arquivo: $map_file ====" >> "$LOG_FILE"
-        cat "$log_file" >> "$LOG_FILE"
-        echo -e "\n\n" >> "$LOG_FILE"
+    if echo "$output" | grep -q "All heap blocks were freed -- no leaks are possible"; then
+        echo -e "\e[32mOK\e[0m" # Mensagem em verde
     else
-        rm "$log_file"
+        echo -e "\e[31mMapa com leaks!\e[0m" # Mensagem em vermelho
     fi
 }
 

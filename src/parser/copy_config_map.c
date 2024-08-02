@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:48:23 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/01 19:18:45 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 14:37:46 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	open_config_file(t_game *cub3d)
 	return (fd);
 }
 
-void	process_config_line(t_game *cub3d, char *line)
+void	process_config_line(t_game *cub3d, int fd, char *line)
 {
 	char	*clean_line;
 
@@ -37,8 +37,12 @@ void	process_config_line(t_game *cub3d, char *line)
 	}
 	if (ft_check_for_configs(cub3d, clean_line))
 	{
-		free(clean_line);
-		ft_perror("Error\nInvalid config", cub3d);
+		while (clean_line)
+		{
+			free(clean_line);
+			clean_line = get_next_line(fd);
+		}
+		ft_perror("Error\nInvalid config\n", cub3d);
 	}
 	free(clean_line);
 }
@@ -66,7 +70,7 @@ void	copy_config_map_lines(t_game *cub3d, int fd)
 			skip_blank_lines(&line, fd, &cub3d->map.lines_to_map);
 			break ;
 		}
-		process_config_line(cub3d, line);
+		process_config_line(cub3d, fd, line);
 		line = get_next_line(fd);
 		cub3d->map.lines_to_map++;
 	}
@@ -87,5 +91,4 @@ void	ft_copy_config_map(t_game *cub3d)
 	copy_config_map_lines(cub3d, fd);
 	close(fd);
 	cub3d->map.lines_to_map--;
-	ft_check_rgb(cub3d);
 }
