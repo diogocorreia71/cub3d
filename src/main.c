@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/02 15:12:42 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:28:38 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	int		i;
 
 	i = 0;
-	split = NULL;
-	int_rgb = NULL;
 	trimmed_line = NULL;
 	ft_check_commas(str, cub3d);
 	split = ft_split(str, ',');
@@ -48,11 +46,7 @@ int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 	if (i > 3)
 		ft_color_error(cub3d, NULL, trimmed_line);
 	trimmed_line = malloc(sizeof(char *) * (i + 1));
-	if (!trimmed_line)
-	{
-		ft_free_dp((void **)split);
-		ft_perror("Error\nmalloc faillure on trimmed_line\n", cub3d);
-	}
+	ft_malloc_error(cub3d, trimmed_line, split);
 	i = -1;
 	while (split[++i])
 		trimmed_line[i] = ft_strtrim(split[i], " \t\n");

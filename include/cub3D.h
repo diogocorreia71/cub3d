@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/02 11:28:35 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:57:09 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ void		ft_check_rgb(t_game *cub3d);
 void		ft_free_dp(void **arg);
 void		ft_perror(char *msg, t_game *cub3d);
 void		ft_read_next_line(t_game *cub3d, int *fd, char *line);
+void		ft_malloc_error(t_game *cub3d, char **trimmed_line, char **split);
 
 //Sprite_utils
 t_sprite	ft_get_sprite_info(t_game *cub3d, char *texture);

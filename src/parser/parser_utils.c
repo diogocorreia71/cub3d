@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/02 15:09:00 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:28:44 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ void	ft_free_stack_array(void **arg)
 	{
 		if (arg[i])
 			free(arg[i]);
+	}
+}
+
+void	ft_malloc_error(t_game *cub3d, char **trimmed_line, char **split)
+{
+	if (!trimmed_line)
+	{
+		ft_free_dp((void **)split);
+		ft_perror("Error\nmalloc faillure on trimmed_line\n", cub3d);
 	}
 }
 

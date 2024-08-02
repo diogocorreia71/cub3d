@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:40:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/01 15:55:55 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:38:23 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_count_map_lines(t_game *cub3d)
 		cub3d->map.total_lines++;
 		free(line);
 	}
+	if (cub3d->map.total_lines > 600)
+		ft_perror("Error\nMap too big, exiting to avoid overflow\n", cub3d);
 	close(fd);
 }
 
