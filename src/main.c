@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:30:42 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/02 14:47:53 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:12:42 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,34 @@ void	ft_color_error(t_game *cub3d, int *int_rgb, char **trimmed_line)
 int	*ft_conv_str_to_int(char *str, t_game *cub3d)
 {
 	char	**split;
+	int		*int_rgb;
 	char	**trimmed_line;
 	int		i;
 
 	i = 0;
+	split = NULL;
+	int_rgb = NULL;
+	trimmed_line = NULL;
 	ft_check_commas(str, cub3d);
 	split = ft_split(str, ',');
 	while (split[i])
 		i++;
-	if (i != 3)
-		ft_color_error(cub3d, NULL, split);
+	if (i > 3)
+		ft_color_error(cub3d, NULL, trimmed_line);
 	trimmed_line = malloc(sizeof(char *) * (i + 1));
 	if (!trimmed_line)
 	{
 		ft_free_dp((void **)split);
-		ft_perror("Error\nmalloc faillure on trimmed line\n", cub3d);
+		ft_perror("Error\nmalloc faillure on trimmed_line\n", cub3d);
 	}
 	i = -1;
 	while (split[++i])
 		trimmed_line[i] = ft_strtrim(split[i], " \t\n");
 	trimmed_line[i] = NULL;
 	ft_free_dp((void **)split);
+	int_rgb = ft_convert_and_validate(trimmed_line, cub3d);
 	ft_free_dp((void **)trimmed_line);
-	return (ft_convert_and_validate(trimmed_line, cub3d));
+	return (int_rgb);
 }
 
 void	ft_init_sprites(t_game *cub3d)

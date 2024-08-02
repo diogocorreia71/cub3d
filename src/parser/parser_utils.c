@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:35:40 by jmarinho          #+#    #+#             */
-/*   Updated: 2024/08/02 14:44:58 by jmarinho         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:09:00 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*ft_convert_and_validate(char **trimmed_line, t_game *cub3d)
 
 	int_rgb = ft_calloc(3, sizeof(int));
 	if (!int_rgb)
-		ft_perror("Memory allocation failed", cub3d);
+		ft_perror("Error\nMemory allocation failed\n", cub3d);
 	i = 0;
 	j = -1;
 	while (i < 3)

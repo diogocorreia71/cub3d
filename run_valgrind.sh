@@ -25,13 +25,19 @@ run_valgrind() {
     fi
 }
 
+run() {
+    ./cub3D "$map_file"
+}
+
 # Executa valgrind em todos os arquivos inválidos
 for map_file in "$INVALID_DIR"/*.cub; do
     run_valgrind "$map_file" "valgrind_log_invalid.txt"
+    run
 done
 # Executa valgrind em todos os arquivos válidos
 for map_file in "$VALID_DIR"/*.cub; do
     run_valgrind "$map_file" "valgrind_log_valid.txt"
+    run
 done
 
 
