@@ -26,7 +26,7 @@ void	ft_init_player_pos(t_game *cub3d)
 	else if (cub3d->player.tile == 'E')
 		cub3d->player.direction = (t_pos){dir, 0};
 	cub3d->player.movement = (t_pos){0, 0};
-	cub3d->player.plane.pos.x = -cub3d->player.direction.y;
+	cub3d->player.plane.pos.x = -cub3d->player.direction.y * 0.66;
 	cub3d->player.plane.pos.y = cub3d->player.direction.x;
 	cub3d->key = 0;
 }

@@ -41,6 +41,8 @@ void	ft_sprites(t_game *cub3d, int i)
 		cub3d->img_info.pos_texture += cub3d->img_info.scale;
 		texture = pixel_get(&cub3d->sprite[cub3d->texture.index].image,
 				cub3d->img_info.tex_x, tex_y);
+		if (cub3d->ray.hit_vertical == true)
+			texture = (texture >> 1) & 8355711;
 		pixel_put(&cub3d->image, i, cub3d->img_info.draw_start++, texture);
 	}
 }

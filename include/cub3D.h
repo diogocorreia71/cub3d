@@ -27,8 +27,8 @@
 # define F 	4
 # define C 	5
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1280
+# define HEIGHT 720
 # define SPRITE_SIZE 64
 # define SPEED 0.025
 # define ROTATION_SPEED 0.6

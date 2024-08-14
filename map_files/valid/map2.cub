@@ -1,7 +1,7 @@
 NO ./sprites/wall1.xpm
-SO ./sprites/wall2.xpm
-WE ./sprites/wall3.xpm
-EA ./sprites/wall5.xpm
+SO ./sprites/wall1.xpm
+WE ./sprites/wall1.xpm
+EA ./sprites/wall1.xpm
 C 135,206,235
 F 125,200,10
 
